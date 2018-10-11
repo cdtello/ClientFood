@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical|center_horizontal"
+    android:weightSum="1"
+    android:orientation="vertical"
+    tools:context=".DomicilioFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@layout/border"
+        android:weightSum="1"
+        android:layout_weight="0.1"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edtNombre"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:ems="10"
+            android:gravity="center_vertical|center_horizontal"
+            android:hint="NOMBRE"
+            android:inputType="textPersonName"
+            android:textColor="#ffffff"
+            android:textColorHint="#D0D0D7" />
+
+        <EditText
+            android:id="@+id/edtTelefono"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:ems="10"
+            android:gravity="center_vertical|center_horizontal"
+            android:hint="TELEFONO"
+            android:inputType="phone"
+            android:textColor="#ffffff"
+            android:textColorHint="#D0D0D7" />
+
+        <EditText
+            android:id="@+id/edtDireccion"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:ems="10"
+            android:gravity="center_vertical|center_horizontal"
+            android:hint="DIRECCION"
+            android:inputType="textPostalAddress"
+            android:textColor="#ffffff"
+            android:textColorHint="#D0D0D7" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.9"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <RadioGroup
+            android:id="@+id/RgroupCat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+
+            android:layout_weight="0.2"
+            tools:ignore="OnClick">
+
+            <RadioButton
+                android:id="@+id/radioButton7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="radioGroupPresionado"
+                android:text="SALCHIPAPA"
+                android:textColor="#ffffff" />
+
+            <RadioButton
+                android:id="@+id/radioButton6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="radioGroupPresionado"
+                android:text="CARNE"
+                android:textColor="#ffffff" />
+
+            <RadioButton
+                android:id="@+id/radioButton5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="radioGroupPresionado"
+                android:text="ALITAS"
+                android:textColor="#ffffff" />
+
+            <RadioButton
+                android:id="@+id/radioButton4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="radioGroupPresionado"
+                android:text="SANDWICH"
+                android:textColor="#ffffff" />
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="radioGroupPresionado"
+                android:text="AREPAS"
+                android:textColor="#ffffff" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="radioGroupPresionado"
+                android:text="PIZZA"
+                android:textColor="#ffffff" />
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="radioGroupPresionado"
+                android:text="LASAGNA"
+                android:textColor="#ffffff" />
+
+
+            <RadioButton
+                android:id="@+id/radioButton14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="radioGroupPresionado"
+                android:text="PERRO CALIENTE"
+                android:textColor="#ffffff" />
+
+            <RadioButton
+                android:id="@+id/radioButton13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="radioGroupPresionado"
+                android:text="MAICITO"
+                android:textColor="#ffffff" />
+
+            <RadioButton
+                android:id="@+id/radioButton12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="radioGroupPresionado"
+                android:text="HAMBURGUESA RES"
+                android:textColor="#ffffff" />
+
+            <RadioButton
+                android:id="@+id/radioButton11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="radioGroupPresionado"
+                android:text="HAMBURGUESA POLLO"
+                android:textColor="#ffffff" />
+
+            <RadioButton
+                android:id="@+id/JUGOS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="radioGroupPresionado"
+                android:text="JUGOS NATURALES"
+                android:textColor="#ffffff" />
+
+            <RadioButton
+                android:id="@+id/radioButton9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="radioGroupPresionado"
+                android:text="BEBIDAS"
+                android:textColor="#ffffff" />
+
+            <RadioButton
+                android:id="@+id/radioButton8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="radioGroupPresionado"
+                android:text="ADICIONALES"
+                android:textColor="#ffffff" />
+
+        </RadioGroup>
+        <ListView
+            android:id="@+id/vProductos"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:orientation="vertical"
+            android:gravity="center_vertical|center_horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/tvNomPro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                android:gravity="center_vertical|center_horizontal"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:typeface="normal" />
+
+            <EditText
+                android:id="@+id/etCanPro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                android:ems="10"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="Cantidad"
+                android:inputType="number"
+                android:textColor="#ffffff"
+                android:textColorHint="#D0D0D7" />
+
+            <EditText
+                android:id="@+id/etObsPro"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.38"
+                android:ems="10"
+                android:gravity="center_vertical|center_horizontal"
+                android:hint="Observaciones"
+                android:inputType="text|textMultiLine"
+                android:textColor="#ffffff"
+                android:textColorHint="#D0D0D7" />
+
+            <Button
+                android:id="@+id/btnAgrPro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btnAgregarPresionado"
+                tools:ignore="OnClick"
+                android:text="AGREGAR" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:orientation="vertical"
+            android:gravity="center_vertical|center_horizontal"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.1"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:text="PRODUCTO"
+                    android:textColor="#ffffff" />
+                <TextView
+                    android:id="@+id/textVie"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.16"
+                    android:text="PRECIO"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.06"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="#"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.28"
+                    android:text="TOTAL"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/vProductosAgr"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                >
+
+            </ListView>
+            <TextView
+                android:id="@+id/tvTotal"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TOTAL PEDIDO: 0"
+                android:textColor="#ffffff" />
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="enviarPedidoDomicilio"
+                android:text="REALIZAR PEDIDO"
+                tools:ignore="OnClick" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
