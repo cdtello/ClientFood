@@ -129,6 +129,7 @@ public class AdminHilo extends AsyncTask<Void,Void,Void> implements Runnable{
                 public void run() {
                     Toast toast1 = Toast.makeText(ventanaPrincipal.getApplicationContext(), "Servidor Desconectado", Toast.LENGTH_SHORT);
                     toast1.show();
+                    ventanaPrincipal.finish();
                 }
             });
             estadoConexion = 0;
