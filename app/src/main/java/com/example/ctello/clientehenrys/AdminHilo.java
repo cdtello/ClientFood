@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 import ServerFood.Estacion;
@@ -42,17 +44,25 @@ public class AdminHilo extends AsyncTask<Void,Void,Void> implements Runnable{
         estacion = new Estacion(ventanaPrincipal.nombre,ventanaPrincipal.id);
     }
 
-    public void conectar(){
-        System.out.println("Esperando Conexion...");
+    public int conectar(){
+        System.out.println("*****************************Valindando Conexion*********************************");
+
         try {
+            System.out.println("*****************************Esperando Conexion*********************************");
             String ip = ventanaPrincipal.getIP();
-            socket = new Socket(ip,5050);
+            socket = new Socket(ip, 5050);
             System.out.println("Estamos Conectados");
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream()); //Salida de Objetos
             objectOutputStream.flush(); // Limpia Bufer
             objectInputStream = new ObjectInputStream(socket.getInputStream()); //Entrada de Objetos
-        } catch (IOException ex) {
-            System.out.println("Error al Conectar");
+
+            ventanaPrincipal.cambiarFragment();
+
+            return 1;
+        } catch (IOException e) {
+            System.out.println("*****************************No se Encontro Servidor  3*********************************");
+            //ventanaPrincipal.finish();
+            return 0;
         }
     }
 
@@ -140,12 +150,18 @@ public class AdminHilo extends AsyncTask<Void,Void,Void> implements Runnable{
 
     @Override
     protected Void doInBackground(Void... params) {
-        conectar();
-        autenticar();
-        hilo.start();
-        System.out.println("Hilo Receptor Iniciado");
-        return null;
+        if(conectar() == 1){
+            autenticar();
+            hilo.start();
+            System.out.println("Hilo Receptor Iniciado");
+            return null;
+        }
+        else{
+            ventanaPrincipal.finish();
+            return null;
+        }
     }
+
     public void autenticar(){
         try{
             objectOutputStream.writeObject(estacion);

@@ -210,59 +210,70 @@ public class Inicio extends AppCompatActivity
     }
     public void btnConectarPresionado(View view){
         android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-        int seleccionado = radioGroup.getCheckedRadioButtonId();
-        String value =((RadioButton)findViewById(seleccionado)).getText().toString();
 
+        //****************************************************************************************************************
+        //****************************************************************************************************************
+        //*****************************Validacion de Estacion Seleccionada************************************************
+        int seleccionado = radioGroup.getCheckedRadioButtonId();
+        String value = "";
+        try {
+            value =((RadioButton)findViewById(seleccionado)).getText().toString();
+
+        }catch (Exception e){
+            value = "Error";
+        }
 
         if(value.compareTo("Salchipapa")==0)
         {
             nombre = "SALCHIPAPA";
             id = 1;
-            fragmentManager.beginTransaction().replace(R.id.contenedor, new PrincipalFragment()).commit();
-            Toast.makeText(getApplicationContext(),"SELECCIONADO...: "+nombre,Toast.LENGTH_LONG).show();
 
         }else if(value.compareTo("Plancha")==0)
         {
             nombre = "PLANCHA";
             id = 2;
-            fragmentManager.beginTransaction().replace(R.id.contenedor, new PrincipalFragment()).commit();
-            Toast.makeText(getApplicationContext(),"SELECCIONADO...: "+nombre,Toast.LENGTH_LONG).show();
 
         }else if(value.compareTo("Horno")==0)
         {
             nombre = "HORNO";
             id = 3;
-            fragmentManager.beginTransaction().replace(R.id.contenedor, new PrincipalFragment()).commit();
-            Toast.makeText(getApplicationContext(),"SELECCIONADO...: "+nombre,Toast.LENGTH_LONG).show();
 
         }else if(value.compareTo("Cocina")==0)
         {
             nombre = "COCINA";
             id = 4;
-            fragmentManager.beginTransaction().replace(R.id.contenedor, new PrincipalFragment()).commit();
-            Toast.makeText(getApplicationContext(),"SELECCIONADO...: "+nombre,Toast.LENGTH_LONG).show();
 
         }else if(value.compareTo("Domicilio")==0)
         {
             nombre = "DOMICILIO";
             id = 5;
-            fragmentManager.beginTransaction().replace(R.id.contenedor, new DomicilioFragment()).commit();
-            Toast.makeText(getApplicationContext(),"SELECCIONADO...: "+nombre,Toast.LENGTH_LONG).show();
 
-        }else{Toast.makeText(getApplicationContext(),"SELECCIONE ESTACION...: ",Toast.LENGTH_LONG).show();return; }
-
+        }else{Toast.makeText(getApplicationContext(),"ERROR ",Toast.LENGTH_LONG).show();return; }
+        //****************************************************************************************************************
+        //****************************************************************************************************************
         if(adminHilo.getEstadoConexion() == 0)
         {
-                adminHilo.setVentanaPrincipal(this);
-                adminHilo.execute();
-                System.out.println("Boton presionado");
+            adminHilo.setVentanaPrincipal(this);
+            adminHilo.execute();
+            System.out.println("Boton presionado");
         }
+
         else
         {
             Toast toast1 = Toast.makeText(getApplicationContext(), "Error, ya estas Conectado", Toast.LENGTH_SHORT);
             toast1.show();
         }
-
+    }
+    public void cambiarFragment(){
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+        if(nombre.compareTo("DOMICILIO")==0){
+            fragmentManager.beginTransaction().replace(R.id.contenedor, new DomicilioFragment()).commit();
+            //Toast.makeText(getApplicationContext(),"SELECCIONADO...: "+nombre,Toast.LENGTH_LONG).show();
+        }
+        else{
+            fragmentManager.beginTransaction().replace(R.id.contenedor, new PrincipalFragment()).commit();
+            //Toast.makeText(getApplicationContext(),"SELECCIONADO...: "+nombre,Toast.LENGTH_LONG).show();
+        }
     }
 
     public void eliminarHilo()
@@ -486,6 +497,19 @@ public class Inicio extends AppCompatActivity
 
         ListaProductosAgregados = new ArrayList<>();
         llenarListViewProductosAgregados();
+
+
+        final EditText etcanpro = (EditText)findViewById(R.id.etCanPro);
+        final EditText etobspro = (EditText)findViewById(R.id.etObsPro);
+        final TextView tvtotal = (TextView)findViewById(R.id.tvTotal);
+        final EditText edtnombre = (EditText)findViewById(R.id.edtNombre);
+        final EditText edttelefono = (EditText)findViewById(R.id.edtTelefono);
+        final EditText edtdireccion = (EditText)findViewById(R.id.edtDireccion);
+
+        edtnombre.setText("");
+        edtdireccion.setText("");
+        edttelefono.setText("");
+        etcanpro.setText("");
     }
     public void eliminarElementosAgregados(int indice)
     {
