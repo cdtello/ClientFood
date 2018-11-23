@@ -1,5 +1,6 @@
 package com.example.ctello.clientehenrys;
 
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
@@ -7,8 +8,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.net.SocketException;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 import ServerFood.Estacion;
@@ -17,6 +16,7 @@ import ServerFood.ProductosDomicilio;
 
 
 public class AdminHilo extends AsyncTask<Void,Void,Void> implements Runnable{
+    //MediaPlayer mp;
     Thread hilo;
     Inicio ventanaPrincipal;
     //MainActivity ventanaPrincipal;
@@ -42,6 +42,7 @@ public class AdminHilo extends AsyncTask<Void,Void,Void> implements Runnable{
     {
         ventanaPrincipal = ventana;
         estacion = new Estacion(ventanaPrincipal.nombre,ventanaPrincipal.id);
+        //mp =  MediaPlayer.create(ventanaPrincipal,R.raw.sonido);
     }
 
     public int conectar(){
@@ -128,6 +129,7 @@ public class AdminHilo extends AsyncTask<Void,Void,Void> implements Runnable{
                     ProductoTransmision producto = (ProductoTransmision) objectInputStream.readObject();
                     ventanaPrincipal.ingresarProducto(producto);
                     ventanaPrincipal.llenarListView();
+                    //mp.start();
 
                 }catch (ClassNotFoundException e) {
                     e.printStackTrace();
